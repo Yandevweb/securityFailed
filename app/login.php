@@ -32,5 +32,6 @@
     <?php if ($isAdmin): ?>
         <h1>Congratz' bro !</h1>
     <?php endif; ?>
+    <a href="index.php">Go to home</a>
 </body>
 </html>
