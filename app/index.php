@@ -23,6 +23,7 @@ $id         = isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : false;
 
 
 if ($comment && $username) {
+    $comment = str_replace("<script>","", $comment);
     $result = mysqli_query($mysqli, 'INSERT INTO security_woot.comments (username, content) VALUES("'.$username.'", "'.$comment.'")');
     header('Location:index.php');
 } else if ($idComment) {
@@ -42,11 +43,37 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
+<?php include('./partials/head.php');?>
   <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2 side-nav">
+          <?php include('./partials/nav.php');?>
+        </div>
+        <div class="col">
+          <h1>
+          <i class="em em-female-technologist"></i>
+            Hack and smile guys, hack and smile
+          <i class="em em-male-technologist"></i>
+          </h1>
+          <form method="POST" action="index.php">
+            <div class="form-group">
+              <input name="username" placeholder="Username" class="form-control">
+              <textarea name="comment" class="form-control" id="" cols="30" rows="10"></textarea>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+          <?php foreach ($comments as $com): ?>
+            <div class="comments-container">
+                <span><?= $com['username'] ;?></span>
+                <p>
+                    <?= $com['content'] ;?>
+                </p>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+    </div>
     <h1><a href="login.php">Go to header challenge</a></h1>
     <h1><a href="cookie.php">Go to cookie challenge</a></h1>
     <h1><a href="sub/index.php">Go to .htaccess challenge</a></h1>
@@ -57,7 +84,6 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
         <textarea name="comment" id="" cols="30" rows="10"></textarea>
         <input type="submit" value="Submit">
     </form>
-
     <form method="POST" action="index.php">
         <label>Select a comment number : </label>
         <select name="idComment">
@@ -81,6 +107,5 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
             <button><a href="?id=<?= $com['id'] ;?>">Delete</a></button>
         </div>
     <?php endforeach; ?>
-
   </body>
 </html>

@@ -13,25 +13,39 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Security</title>
-</head>
+<?php include('./partials/head.php');?>
 <body>
-    <h1>Try to bypass form</h1>
-    <?php if (!$isAdmin): ?>
-        <form method="post" action="login.php">
-            <input type="text" name="login" placeholder="username">
-            <input type="password" name="password" placeholder="password">
-            <input type="submit" value="Submit">
-        </form>
-    <?php endif; ?>
-    <?php if ($isAdmin): ?>
-        <h1>Congratz' bro !</h1>
-    <?php endif; ?>
-    <a href="index.php">Go to home</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 side-nav">
+        <?php include('./partials/nav.php');?>
+      </div>
+      <div class="col">
+        <h1>Try to bypass form <i class="em em-lock"></i></h1>
+        <?php if (!$isAdmin): ?>
+            <form method="post" action="login.php">
+              <div class="form-group">
+                <input class="form-control" type="text" name="login" placeholder="username">
+                <input class="form-control" type="password" name="password" placeholder="password">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          <?php endif; ?>
+          <?php if ($isAdmin): ?>
+              <span>
+                <h3>
+                  <i class="em em-scream"></i>
+                  You have hack us,
+                </h3>
+                <h4>
+                  Congratz' bro we will pay u beer then.
+                  <i class="em em-beer"></i>
+                  <i class="em em-call_me_hand"></i>
+              </h4>
+              </span>
+          <?php endif; ?>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
