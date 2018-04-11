@@ -62,3 +62,8 @@ body {
   font-weight: 100;
   font-style: italic;
 }
+
+.btn-group .btn a{
+  color: #f6f6f6 !important;
+  font-weight: 600;
+}
