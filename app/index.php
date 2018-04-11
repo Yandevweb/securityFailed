@@ -16,10 +16,10 @@ $result = mysqli_query($mysqli,"CREATE TABLE IF NOT EXISTS `security_woot`.`comm
 $mysqli->close();
 $mysqli = mysqli_connect('mysql', 'root', 'root', 'security_woot');
 
-$comment    = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comment'] : false;
-$username   = isset($_POST['username']) ? $_POST['username'] : false;
-$idComment  = isset($_POST['idComment']) && !empty($_POST['idComment']) ? $_POST['idComment'] : false;
-$id         = isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : false;
+$comment    = isset($_POST['comment']) && !empty($_POST['comment']) ? htmlentities($_POST['comment']) : false;
+$username   = isset($_POST['username']) ? htmlentities($_POST['username']) : false;
+$idComment  = isset($_POST['idComment']) && !empty($_POST['idComment']) ? (int)$_POST['idComment'] : false;
+$id         = isset($_GET['id']) && !empty($_GET['id']) ? (int)$_GET['id'] : false;
 
 
 if ($comment && $username) {
@@ -27,9 +27,13 @@ if ($comment && $username) {
     $result = mysqli_query($mysqli, 'INSERT INTO security_woot.comments (username, content) VALUES("'.$username.'", "'.$comment.'")');
     header('Location:index.php');
 } else if ($idComment) {
-    $selectedComment  = mysqli_query($mysqli, 'SELECT * FROM comments WHERE id = ' . $idComment);
+    if(is_numeric($idComment)){
+        $selectedComment  = mysqli_query($mysqli, 'SELECT * FROM comments WHERE id = ' . $idComment .'LIMIT 1 ;');
+    }
 } else if ($id) {
-    $id = mysqli_query($mysqli, 'DELETE FROM comments WHERE id = ' . $id);
+    if(is_numeric($id)){
+        $id = mysqli_query($mysqli, 'DELETE FROM comments WHERE id = ' . $id);
+    }
     header('Location:index.php');
 } else if ((isset($_POST['comment']) && $_POST['comment'] == "")
             && isset($_POST['username'])  && !$idComment){
@@ -39,6 +43,7 @@ if ($comment && $username) {
 // Récuperation des commentaires
 $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
 
+$mysqli->close();
 ?>
 
 <!DOCTYPE html>
