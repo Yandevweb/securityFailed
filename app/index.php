@@ -7,7 +7,7 @@ if ($mysqli->connect_error) {
 }
 
 $result = mysqli_query($mysqli,"CREATE DATABASE IF NOT EXISTS security_woot;");
-$result = mysqli_query($mysqli,"CREATE TABLE `security_woot`.`comments` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(30) NOT NULL , `content` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
+$result = mysqli_query($mysqli,"CREATE TABLE IF NOT EXISTS `security_woot`.`comments` ( `id` INT NOT NULL AUTO_INCREMENT , `username` VARCHAR(30) NOT NULL , `content` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;");
 
 $mysqli->close();
 $mysqli = mysqli_connect('mysql', 'root', 'root', 'security_woot');
