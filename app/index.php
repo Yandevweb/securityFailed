@@ -36,14 +36,14 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
     <title></title>
   </head>
   <body>
+    <h1><a href="login.php">Go to header challenge</a></h1>
+    <h1><a href="cookie.php">Go to cookie challenge</a></h1>
     <h1>Book</h1>
     <form method="POST" action="index.php">
         <input name="username" placeholder="Username">
         <textarea name="comment" id="" cols="30" rows="10"></textarea>
         <input type="submit" value="Submit">
     </form>
-
-    <h1><a href="login.php">Go to header challenge</a></h1>
 
   <?php foreach ($comments as $com): ?>
     <div>
