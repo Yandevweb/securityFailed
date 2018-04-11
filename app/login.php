@@ -13,25 +13,30 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Security</title>
-</head>
+<?php include('./partials/head.php');?>
 <body>
-    <h1>Try to bypass form</h1>
-    <?php if (!$isAdmin): ?>
-        <form method="post" action="login.php">
-            <input type="text" name="login" placeholder="username">
-            <input type="password" name="password" placeholder="password">
-            <input type="submit" value="Submit">
-        </form>
-    <?php endif; ?>
-    <?php if ($isAdmin): ?>
-        <h1>Congratz' bro !</h1>
-    <?php endif; ?>
-    <a href="index.php">Go to home</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <?php include('./partials/nav.php');?>
+      </div>
+      <div class="col">
+        <h1>Try to bypass form</h1>
+        <?php if (!$isAdmin): ?>
+            <form method="post" action="login.php">
+              <div class="form-group">
+                <input class="form-control" type="text" name="login" placeholder="username">
+                <input class="form-control" type="password" name="password" placeholder="password">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          <?php endif; ?>
+          <?php if ($isAdmin): ?>
+              <h1>Congratz' bro !</h1>
+          <?php endif; ?>
+          <a href="index.php" class="btn btn-secondary btn-sm">Go to home <i class="material-icons">home</i></a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
