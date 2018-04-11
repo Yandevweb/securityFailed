@@ -17,11 +17,14 @@ $username = isset($_POST['username']) ? $_POST['username'] : false;
 
 if ($comment && $username) {
     $result = mysqli_query($mysqli, 'INSERT INTO security_woot.comments (username, content) VALUES("'.$username.'", "'.$comment.'")');
+    header('Location:index.php');
+} else if ((isset($_POST['comment']) && $_POST['comment'] == "")
+            && isset($_POST['username'])){
+    header('Location:index.php');
 }
 
 // Récuperation des commentaires
 $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
-
 
 
 ?>
@@ -42,7 +45,10 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
 
   <?php foreach ($comments as $com): ?>
     <div>
-        <?= $com ?>
+        <h4><?= $com['username'] ;?></h4>
+        <p>
+            <?= $com['content'] ;?>
+        </p>
     </div>
   <?php endforeach; ?>
 
