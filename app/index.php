@@ -1,12 +1,16 @@
 <?php
 
-$conn = mysqli_connect('mysql', 'root', 'root');
+$mysqli = mysqli_connect('mysql', 'root', 'root');
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
 }
 
-mysqli_query($conn,"CREATE DATABASE IF NOT EXIST `security_woot` CHARSET SET 'UTF-8'");
+$result = mysqli_query($mysqli,"CREATE DATABASE IF NOT EXISTS security_woot;");
+//$result = mysqli_query($mysqli,"CREATE TABLE comments (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, username VARCHAR(30) NOT NULL, content TEXT NOT NULL)");
+
+$mysqli->close();
+$mysqli = mysqli_connect('mysql', 'root', 'root', 'security_woot');
 
 $comment = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comment'] : false;
 
@@ -20,5 +24,10 @@ $comment = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comme
   </head>
   <body>
     <h1>Book</h1>
+    <form action="POST">
+        <textarea name="comment" id="" cols="30" rows="10"></textarea>
+    </form>
+
+
   </body>
 </html>
