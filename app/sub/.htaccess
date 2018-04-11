@@ -1,0 +1,5 @@
+<Limit GET POST>
+    AuthType Basic
+    AuthName "Restricted Content"
+    Require valid-user
+</Limit>
