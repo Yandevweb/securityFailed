@@ -23,7 +23,7 @@ $id         = isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : false;
 
 
 if ($comment && $username) {
-    $comment = str_replace("<script>","", $comment);
+    $comment = str_replace(array("<script>", "</script>"),"", $comment);
     $result = mysqli_query($mysqli, 'INSERT INTO security_woot.comments (username, content) VALUES("'.$username.'", "'.$comment.'")');
     header('Location:index.php');
 } else if ($idComment) {
