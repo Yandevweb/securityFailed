@@ -35,5 +35,6 @@ if ($comment && $username) {
         <textarea name="comment" id="" cols="30" rows="10"></textarea>
         <input type="submit" value="Submit">
     </form>
+    <h1><a href="login.php">Go to header challenge</a></h1>
   </body>
 </html>
