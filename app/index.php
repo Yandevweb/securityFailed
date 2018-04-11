@@ -7,12 +7,16 @@ if ($mysqli->connect_error) {
 }
 
 $result = mysqli_query($mysqli,"CREATE DATABASE IF NOT EXISTS security_woot;");
-//$result = mysqli_query($mysqli,"CREATE TABLE comments (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, username VARCHAR(30) NOT NULL, content TEXT NOT NULL)");
+$result = mysqli_query($mysqli,"CREATE TABLE IF NOT EXISTS comments (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, username VARCHAR(30) NOT NULL, content TEXT NOT NULL);");
 
 $mysqli->close();
+
 $mysqli = mysqli_connect('mysql', 'root', 'root', 'security_woot');
 
+
+
 $comment = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comment'] : false;
+
 
 ?>
 
