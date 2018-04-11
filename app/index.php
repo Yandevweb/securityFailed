@@ -28,7 +28,7 @@ if ($comment && $username) {
     header('Location:index.php');
 } else if ($idComment) {
     if(is_numeric($idComment)){
-        $selectedComment  = mysqli_query($mysqli, 'SELECT * FROM comments WHERE id = ' . $idComment .'LIMIT 1 ;');
+        $selectedComment = mysqli_query($mysqli, 'SELECT * FROM comments WHERE id = ' . $idComment .' LIMIT 1 ;');
     }
 } else if ($id) {
     if(is_numeric($id)){
