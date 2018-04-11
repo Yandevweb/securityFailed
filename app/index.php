@@ -16,6 +16,7 @@ $comment = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comme
 $username = isset($_POST['username']) ? $_POST['username'] : false;
 
 if ($comment && $username) {
+    $comment = str_replace("<script>","", $comment);
     $result = mysqli_query($mysqli, 'INSERT INTO security_woot.comments (username, content) VALUES("'.$username.'", "'.$comment.'")');
     header('Location:index.php');
 } else if ((isset($_POST['comment']) && $_POST['comment'] == "")
@@ -25,7 +26,6 @@ if ($comment && $username) {
 
 // Récuperation des commentaires
 $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
-
 
 ?>
 
