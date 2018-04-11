@@ -21,7 +21,7 @@
         <?php include('./partials/nav.php');?>
       </div>
       <div class="col">
-        <h1>Try to bypass form</h1>
+        <h1>Try to bypass form <i class="em em-lock"></i></h1>
         <?php if (!$isAdmin): ?>
             <form method="post" action="login.php">
               <div class="form-group">
@@ -32,9 +32,18 @@
             </form>
           <?php endif; ?>
           <?php if ($isAdmin): ?>
-              <h1>Congratz' bro !</h1>
+              <span>
+                <h3>
+                  <i class="em em-scream"></i>
+                  You have hack us,
+                </h3>
+                <h4>
+                  Congratz' bro we will pay u beer then.
+                  <i class="em em-beer"></i>
+                  <i class="em em-call_me_hand"></i>
+              </h4>
+              </span>
           <?php endif; ?>
-          <a href="index.php" class="btn btn-secondary btn-sm">Go to home <i class="material-icons">home</i></a>
       </div>
     </div>
   </div>
