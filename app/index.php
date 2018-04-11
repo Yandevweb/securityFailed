@@ -1,5 +1,9 @@
 <?php
 
+$countCom        = 0;
+$countSelect     = 0;
+$selectedComment = null;
+
 $mysqli = mysqli_connect('mysql', 'root', 'root');
 
 if ($mysqli->connect_error) {
@@ -12,15 +16,18 @@ $result = mysqli_query($mysqli,"CREATE TABLE IF NOT EXISTS `security_woot`.`comm
 $mysqli->close();
 $mysqli = mysqli_connect('mysql', 'root', 'root', 'security_woot');
 
-$comment = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comment'] : false;
-$username = isset($_POST['username']) ? $_POST['username'] : false;
+$comment    = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comment'] : false;
+$username   = isset($_POST['username']) ? $_POST['username'] : false;
+$numComment = isset($_POST['numComment']) && !empty($_POST['numComment']) ? $_POST['numComment'] : false;
 
 if ($comment && $username) {
     $comment = str_replace("<script>","", $comment);
     $result = mysqli_query($mysqli, 'INSERT INTO security_woot.comments (username, content) VALUES("'.$username.'", "'.$comment.'")');
     header('Location:index.php');
+} else if ($numComment) {
+    $selectedComment  = mysqli_query($mysqli, 'SELECT * FROM comments WHERE id = ' . $numComment);
 } else if ((isset($_POST['comment']) && $_POST['comment'] == "")
-            && isset($_POST['username'])){
+            && isset($_POST['username'])  && !$numComment){
     header('Location:index.php');
 }
 
@@ -46,14 +53,28 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
         <input type="submit" value="Submit">
     </form>
 
-  <?php foreach ($comments as $com): ?>
-    <div>
-        <h4><?= $com['username'] ;?></h4>
-        <p>
-            <?= $com['content'] ;?>
-        </p>
-    </div>
-  <?php endforeach; ?>
+    <form method="POST" action="index.php">
+        <label>Select a comment number : </label>
+        <select name="numComment">
+            <option value="">Show All</option>
+            <?php foreach ($comments as $com): ?>
+                <?php $countSelect++; ?>
+                <option value="<?= $com['id'] ?>"><?= $countSelect ?></option>
+            <?php endforeach; ?>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+
+    <?php $comments = !empty($selectedComment) ? $selectedComment : $comments ;?>
+    <?php foreach ($comments as $com): ?>
+        <?php $countCom++; ?>
+        <div>
+            <h4>#<?= $countCom ;?> From <?= $com['username'] ;?></h4>
+            <p>
+                <?= $com['content'] ;?>
+            </p>
+        </div>
+    <?php endforeach; ?>
 
   </body>
 </html>
