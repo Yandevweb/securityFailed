@@ -63,12 +63,27 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
+          <form method="POST" action="index.php">
+              <label>Select a comment number : </label>
+              <select name="idComment">
+                  <option value="">Show All</option>
+                  <?php foreach ($comments as $com): ?>
+                      <?php $countSelect++; ?>
+                      <option value="<?= $com['id'] ?>"><?= $countSelect ?></option>
+                  <?php endforeach; ?>
+              </select>
+              <input type="submit" value="Submit">
+          </form>
+          <?php $comments = !empty($selectedComment) ? $selectedComment : $comments ;?>
           <?php foreach ($comments as $com): ?>
+          <?php $countCom++; ?>
             <div class="comments-container">
                 <span><?= $com['username'] ;?></span>
+                <h4>#<?= $countCom ;?> From <?= $com['username'] ;?></h4>
                 <p>
                     <?= $com['content'] ;?>
                 </p>
+                <button><a href="?id=<?= $com['id'] ;?>">Delete</a></button>
             </div>
           <?php endforeach; ?>
         </div>
