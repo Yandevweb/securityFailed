@@ -23,9 +23,9 @@
 <body>
     <h1>Try to bypass form</h1>
     <?php if (!$isAdmin): ?>
-        <form action="post" action="login.php">
+        <form method="post" action="login.php">
             <input type="text" name="login" placeholder="username">
-            <input type="password" name="password" placeholder="username">
+            <input type="password" name="password" placeholder="password">
             <input type="submit" value="Submit">
         </form>
     <?php endif; ?>
