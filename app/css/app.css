@@ -9,3 +9,45 @@ body {
   margin: 1.5em 0;
 
 }
+
+.container-fluid .form-control {
+  margin-bottom: 0.5em;
+  border-radius: 0;
+}
+
+.container-fluid .btn {
+  border-radius: 0;
+}
+
+.side-nav {
+  background: #464646;
+  height: 100vh;
+}
+
+.side-nav a {
+  color: #f6f6f6;
+}
+
+.side-nav span{
+  color: #f8f8f8;
+  margin: 1em 0;
+  display: block;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.comments-container {
+  background: #f7f7f9;
+  padding: 0.8em;
+  margin: 0.5em 0;
+}
+
+.comments-container span {
+  color: #404040;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.comments-container p {
+  color: #929292;
+}

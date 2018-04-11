@@ -47,7 +47,7 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-2">
+        <div class="col-2 side-nav">
           <?php include('./partials/nav.php');?>
         </div>
         <div class="col">
@@ -64,8 +64,8 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
             </div>
           </form>
           <?php foreach ($comments as $com): ?>
-            <div>
-                <h4><?= $com['username'] ;?></h4>
+            <div class="comments-container">
+                <span><?= $com['username'] ;?></span>
                 <p>
                     <?= $com['content'] ;?>
                 </p>
