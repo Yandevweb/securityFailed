@@ -45,6 +45,7 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
     <h1><a href="login.php">Go to header challenge</a></h1>
     <h1><a href="cookie.php">Go to cookie challenge</a></h1>
     <h1><a href="sub/index.php">Go to .htaccess challenge</a></h1>
+    <h1><a href="command.php">Go to command challenge</a></h1>
     <h1>Book</h1>
     <form method="POST" action="index.php">
         <input name="username" placeholder="Username">
