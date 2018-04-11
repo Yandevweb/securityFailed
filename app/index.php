@@ -63,49 +63,31 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
+          <form method="POST" action="index.php">
+              <label>Select a comment number : </label>
+              <select name="idComment">
+                  <option value="">Show All</option>
+                  <?php foreach ($comments as $com): ?>
+                      <?php $countSelect++; ?>
+                      <option value="<?= $com['id'] ?>"><?= $countSelect ?></option>
+                  <?php endforeach; ?>
+              </select>
+              <input type="submit" value="Submit">
+          </form>
+          <?php $comments = !empty($selectedComment) ? $selectedComment : $comments ;?>
           <?php foreach ($comments as $com): ?>
+          <?php $countCom++; ?>
             <div class="comments-container">
                 <span><?= $com['username'] ;?></span>
+                <h4>#<?= $countCom ;?> From <?= $com['username'] ;?></h4>
                 <p>
                     <?= $com['content'] ;?>
                 </p>
+                <button><a href="?id=<?= $com['id'] ;?>">Delete</a></button>
             </div>
           <?php endforeach; ?>
         </div>
       </div>
     </div>
-    <h1><a href="login.php">Go to header challenge</a></h1>
-    <h1><a href="cookie.php">Go to cookie challenge</a></h1>
-    <h1><a href="sub/index.php">Go to .htaccess challenge</a></h1>
-    <h1><a href="command.php">Go to command challenge</a></h1>
-    <h1>Book</h1>
-    <form method="POST" action="index.php">
-        <input name="username" placeholder="Username">
-        <textarea name="comment" id="" cols="30" rows="10"></textarea>
-        <input type="submit" value="Submit">
-    </form>
-    <form method="POST" action="index.php">
-        <label>Select a comment number : </label>
-        <select name="idComment">
-            <option value="">Show All</option>
-            <?php foreach ($comments as $com): ?>
-                <?php $countSelect++; ?>
-                <option value="<?= $com['id'] ?>"><?= $countSelect ?></option>
-            <?php endforeach; ?>
-        </select>
-        <input type="submit" value="Submit">
-    </form>
-
-    <?php $comments = !empty($selectedComment) ? $selectedComment : $comments ;?>
-    <?php foreach ($comments as $com): ?>
-        <?php $countCom++; ?>
-        <div>
-            <h4>#<?= $countCom ;?> From <?= $com['username'] ;?></h4>
-            <p>
-                <?= $com['content'] ;?>
-            </p>
-            <button><a href="?id=<?= $com['id'] ;?>">Delete</a></button>
-        </div>
-    <?php endforeach; ?>
   </body>
 </html>
