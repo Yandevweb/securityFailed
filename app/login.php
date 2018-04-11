@@ -21,7 +21,7 @@
         <?php include('./partials/nav.php');?>
       </div>
       <div class="col">
-        <h1>Try to bypass form <i class="em em-lock"></i></h1>
+        <h1>Try to bypass form <i class="em em-male-detective"></i></h1>
         <?php if (!$isAdmin): ?>
             <form method="post" action="login.php">
               <div class="form-group">
