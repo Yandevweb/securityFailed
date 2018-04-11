@@ -43,6 +43,8 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
         <input type="submit" value="Submit">
     </form>
 
+    <h1><a href="login.php">Go to header challenge</a></h1>
+
   <?php foreach ($comments as $com): ?>
     <div>
         <h4><?= $com['username'] ;?></h4>
