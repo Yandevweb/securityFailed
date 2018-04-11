@@ -18,16 +18,21 @@ $mysqli = mysqli_connect('mysql', 'root', 'root', 'security_woot');
 
 $comment    = isset($_POST['comment']) && !empty($_POST['comment']) ? $_POST['comment'] : false;
 $username   = isset($_POST['username']) ? $_POST['username'] : false;
-$numComment = isset($_POST['numComment']) && !empty($_POST['numComment']) ? $_POST['numComment'] : false;
+$idComment  = isset($_POST['idComment']) && !empty($_POST['idComment']) ? $_POST['idComment'] : false;
+$id         = isset($_GET['id']) && !empty($_GET['id']) ? $_GET['id'] : false;
+
 
 if ($comment && $username) {
     $comment = str_replace("<script>","", $comment);
     $result = mysqli_query($mysqli, 'INSERT INTO security_woot.comments (username, content) VALUES("'.$username.'", "'.$comment.'")');
     header('Location:index.php');
-} else if ($numComment) {
-    $selectedComment  = mysqli_query($mysqli, 'SELECT * FROM comments WHERE id = ' . $numComment);
+} else if ($idComment) {
+    $selectedComment  = mysqli_query($mysqli, 'SELECT * FROM comments WHERE id = ' . $idComment);
+} else if ($id) {
+    $id = mysqli_query($mysqli, 'DELETE FROM comments WHERE id = ' . $id);
+    header('Location:index.php');
 } else if ((isset($_POST['comment']) && $_POST['comment'] == "")
-            && isset($_POST['username'])  && !$numComment){
+            && isset($_POST['username'])  && !$idComment){
     header('Location:index.php');
 }
 
@@ -56,7 +61,7 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
 
     <form method="POST" action="index.php">
         <label>Select a comment number : </label>
-        <select name="numComment">
+        <select name="idComment">
             <option value="">Show All</option>
             <?php foreach ($comments as $com): ?>
                 <?php $countSelect++; ?>
@@ -74,6 +79,7 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
             <p>
                 <?= $com['content'] ;?>
             </p>
+            <button><a href="?id=<?= $com['id'] ;?>">Delete</a></button>
         </div>
     <?php endforeach; ?>
 
