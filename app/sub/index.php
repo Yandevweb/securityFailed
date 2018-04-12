@@ -13,10 +13,13 @@
           <a href="index.php" class="btn btn-sm">.htaccess challenge</a>
           <a href="../scommand.php" class="btn btn-sm">Command challenge</a>
         </div>
-
       </div>
       <div class="col test">
-        <h1>Woot ! You pass this challenge</h1>
+        <h1>[ .httacces ] Challenge <i class="em em-passport_control"></i></h1>
+        <div class="cookie-result">
+          <span> You we're right dude you pass this challenge
+            <i class="em em-champagne"></i> </span>
+        </div>
       </div>
     </div>
   </div>
