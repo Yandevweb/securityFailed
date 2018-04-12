@@ -16,11 +16,10 @@ $result = mysqli_query($mysqli,"CREATE TABLE IF NOT EXISTS `security_woot`.`comm
 $mysqli->close();
 $mysqli = mysqli_connect('mysql', 'root', 'root', 'security_woot');
 
-$comment    = isset($_POST['comment']) && !empty($_POST['comment']) ? htmlentities($_POST['comment']) : false;
-$username   = isset($_POST['username']) ? htmlentities($_POST['username']) : false;
+$comment    = isset($_POST['comment']) && !empty($_POST['comment']) ? htmlentities($_POST['comment'], ENT_QUOTES) : false;
+$username   = isset($_POST['username']) ? htmlentities($_POST['username'], ENT_QUOTES) : false;
 $idComment  = isset($_POST['idComment']) && !empty($_POST['idComment']) ? (int)$_POST['idComment'] : false;
 $id         = isset($_GET['id']) && !empty($_GET['id']) ? (int)$_GET['id'] : false;
-
 
 if ($comment && $username) {
     $comment = str_replace(array("<script>", "</script>"),"", $comment);
