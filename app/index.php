@@ -50,7 +50,7 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
         <div class="col-2 side-nav">
           <?php include('./partials/nav.php');?>
         </div>
-        <div class="col">
+        <div class="col test">
           <h1>
           <i class="em em-female-technologist"></i>
             Hack and smile guys, hack and smile
@@ -82,7 +82,7 @@ $comments = mysqli_query($mysqli, "SELECT * FROM comments ;");
           <?php foreach ($comments as $com): ?>
           <?php $countCom++; ?>
             <div class="comments-container">
-                <span><?= $com['username'] ;?></span>
+                <span class="title"><?= $com['username'] ;?></span>
                 <p>
                     <?= $com['content'] ;?>
                 </p>

@@ -39,17 +39,18 @@
         <?php include('./partials/nav.php');?>
       </div>
       <div class="col">
-        <h1>Type your ip to ping <br>
+        <h1>Type your ip to ping <br><br>
            <i class="em em-computer"></i>
            <i class="em em-twisted_rightwards_arrows"></i>
            <i class="em em-desktop_computer"></i></h1>
         <form method="post">
-          <div class="form-group">
+          <div class="input-group mb-3">
             <input class="form-control" type="text" name="command" placeholder="127.0.0.1">
-            <button class="btn btn-primary" type="submit">Submit</button>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Button</button>
           </div>
+        </div>
         </form>
-        <br>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-success">
             <a href="command.php?step=1" class="btn btn-sm">Level 1</a>
@@ -61,13 +62,13 @@
             <a href="command.php?step=3" class="btn btn-sm">Level 3</a>
           </label>
         </div>
-        <pre>
-        <?php
-          foreach ($output as $str) {
-              echo $str."<br>";
-          }
-        ?>
-        </pre>
+        <?php foreach ($output as $str): ?>
+        <div class="ping-result">
+          <span class="woot"><?= $str;?></span>
+          <span class="is">is</span>
+          <i class="em em-skull"></i>
+        </div>
+        <?php endforeach; ?>
       </div>
     </div>
   </div>
