@@ -14,7 +14,7 @@
           <a href="../scommand.php" class="btn btn-sm">Command challenge</a>
         </div>
       </div>
-      <div class="col test">
+      <div class="col bonus-padding">
         <h1>[ .httacces ] Challenge <i class="em em-passport_control"></i></h1>
         <div class="cookie-result">
           <span> You we're right dude you pass this challenge

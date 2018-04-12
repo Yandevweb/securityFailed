@@ -13,9 +13,9 @@ $hasPassed = isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] === 'ht
       <div class="col-2 side-nav">
         <?php include('./partials/nav.php');?>
       </div>
-      <div class="col">
+      <div class="col bonus-padding">
         <h1>
-          Redirect challenge <br>
+          Redirect challenge <br><br>
           <i class="em em-arrow_heading_up"></i>
           <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i>
           <i class="em em-arrow_heading_down"></i>

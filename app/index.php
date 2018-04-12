@@ -54,7 +54,7 @@ $mysqli->close();
         <div class="col-2 side-nav">
           <?php include('./partials/nav.php');?>
         </div>
-        <div class="col test">
+        <div class="col bonus-padding">
           <h1>
           <i class="em em-female-technologist"></i>
             Hack and smile guys, hack and smile

@@ -18,7 +18,7 @@ if (isset($_COOKIE['PHPSESSID']) && trim($_COOKIE['PHPSESSID']) === 'chocolate')
       <div class="col-2 side-nav">
         <?php include('./partials/nav.php');?>
       </div>
-      <div class="col">
+      <div class="col bonus-padding">
         <h1>Cookie challenge <i class="em em-cookie"></i></h1>
         <?php if (!$isARealCookie): ?>
           <div class="cookie-result">
