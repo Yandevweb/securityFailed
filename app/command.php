@@ -31,33 +31,46 @@
 
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<?php include('./partials/head.php');?>
 <body>
-    <h1>Type your ip to ping</h1>
-    <form method="post">
-        <input type="text" name="command" placeholder="127.0.0.1">
-        <input type="submit" value="Submit">
-    </form>
-    <br>
-    <a href="command.php?step=1">Go to step 1</a>
-    <br>
-    <a href="command.php?step=2">Go to step 2</a>
-    <br>
-    <a href="command.php?step=3">Go to step 3</a>
-    <br>
-    <a href="index.php">Go to home</a>
-    <pre>
-        <?php
-            foreach ($output as $str) {
-                echo $str."<br>";
-            }
-        ?>
-    </pre>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 side-nav">
+        <?php include('./partials/nav.php');?>
+      </div>
+      <div class="col">
+        <h1>Type your ip to ping <br><br>
+           <i class="em em-computer"></i>
+           <i class="em em-twisted_rightwards_arrows"></i>
+           <i class="em em-desktop_computer"></i></h1>
+        <form method="post">
+          <div class="input-group mb-3">
+            <input class="form-control" type="text" name="command" placeholder="127.0.0.1">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Button</button>
+          </div>
+        </div>
+        </form>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-success">
+            <a href="command.php?step=1" class="btn btn-sm">Level 1</a>
+          </label>
+          <label class="btn btn-warning">
+            <a href="command.php?step=2" class="btn btn-sm">Level 2</a>
+          </label>
+          <label class="btn btn-danger">
+            <a href="command.php?step=3" class="btn btn-sm">Level 3</a>
+          </label>
+        </div>
+        <?php foreach ($output as $str): ?>
+        <div class="ping-result">
+          <span class="woot"><?= $str;?></span>
+          <span class="is">is</span>
+          <i class="em em-skull"></i>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

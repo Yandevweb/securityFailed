@@ -15,6 +15,10 @@ body {
   border-radius: 0;
 }
 
+.container-fluid .input-group-text {
+  border-radius: 0;
+}
+
 .container-fluid .btn {
   border-radius: 0;
 }
@@ -26,6 +30,10 @@ body {
 
 .side-nav a {
   color: #f6f6f6;
+}
+
+.side-nav a:hover {
+  color: #989898;
 }
 
 .side-nav span{
@@ -42,7 +50,7 @@ body {
   margin: 0.5em 0;
 }
 
-.comments-container span {
+.comments-container .title {
   color: #404040;
   font-size: 1.2em;
   font-weight: 600;
@@ -50,4 +58,41 @@ body {
 
 .comments-container p {
   color: #929292;
+}
+
+.user-id {
+  display: block;
+  font-size: 1em;
+  font-weight: 100;
+  font-style: italic;
+  width: 90%;
+  float: left;
+  padding-top: 0.5em;
+}
+
+.btn-group .btn a{
+  color: #f6f6f6 !important;
+  font-weight: 600;
+}
+
+.container-fluid .cookie-result {
+  background: #f7f7f9;
+  color: #464646;
+  padding: 1em;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.ping-result {
+  background: #f7f7f9;
+  color: #464646;
+  padding: 0.5em;
+  margin-top: 2em;
+  font-size: 1.2em;
+}
+
+.ping-result .is {
+  font-weight: 600;
+  margin-right: 0.5em;
 }

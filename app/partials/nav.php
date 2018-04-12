@@ -5,4 +5,5 @@
   <a href="cookie.php" class="btn btn-sm">Cookie challenge</a>
   <a href="sub/index.php" class="btn btn-sm">.htaccess challenge</a>
   <a href="command.php" class="btn btn-sm">Command challenge</a>
+  <a href="redirect.php" class="btn btn-sm">Redirect challenge</a>
 </div>
