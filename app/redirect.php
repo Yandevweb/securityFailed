@@ -6,19 +6,30 @@ $hasPassed = isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] === 'ht
 
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<?php include('./partials/head.php');?>
 <body>
-    <?php if (!$hasPassed): ?>
-        <p>You need to from <a href="http://powned.hack">http://powned.hack</a> to access this page</p>
-    <?php endif; ?>
-    <?php if ($hasPassed): ?>
-        <p>You passed !</p>
-    <?php endif; ?>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 side-nav">
+        <?php include('./partials/nav.php');?>
+      </div>
+      <div class="col">
+        <h1>
+          Redirect challenge <br>
+          <i class="em em-arrow_heading_up"></i>
+          <i class="em em-grinning_face_with_one_large_and_one_small_eye"></i>
+          <i class="em em-arrow_heading_down"></i>
+        </h1>
+        <div class="cookie-result">
+          <?php if (!$hasPassed): ?>
+              <p>You need access from <a href="http://powned.hack">http://powned.hack</a> to hack this page</p>
+          <?php endif; ?>
+          <?php if ($hasPassed): ?>
+              <p>You passed ! <i class="em em-i_love_you_hand_sign"></i></p>
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
