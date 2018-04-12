@@ -55,12 +55,27 @@ $mysqli->close();
         <div class="col-2 side-nav">
           <?php include('./partials/nav.php');?>
         </div>
-        <div class="col">
+        <div class="col test">
           <h1>
           <i class="em em-female-technologist"></i>
             Hack and smile guys, hack and smile
           <i class="em em-male-technologist"></i>
           </h1>
+          <form method="POST" action="index.php">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">Show</label>
+              </div>
+              <select class="custom-select" name="idComment" id="inputGroupSelect01">
+              <option value="">All...</option>
+                <?php foreach ($comments as $com): ?>
+                    <?php $countSelect++; ?>
+                    <option value="<?= $com['id'] ?>"><?= $countSelect ?></option>
+                <?php endforeach; ?>
+              </select>
+              <button type="submit" class="btn btn-info">Submit</button>
+            </div>
+          </form>
           <form method="POST" action="index.php">
             <div class="form-group">
               <input name="username" placeholder="Username" class="form-control">
@@ -68,27 +83,16 @@ $mysqli->close();
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
-          <form method="POST" action="index.php">
-              <label>Select a comment number : </label>
-              <select name="idComment">
-                  <option value="">Show All</option>
-                  <?php foreach ($comments as $com): ?>
-                      <?php $countSelect++; ?>
-                      <option value="<?= $com['id'] ?>"><?= $countSelect ?></option>
-                  <?php endforeach; ?>
-              </select>
-              <input type="submit" value="Submit">
-          </form>
           <?php $comments = !empty($selectedComment) ? $selectedComment : $comments ;?>
           <?php foreach ($comments as $com): ?>
           <?php $countCom++; ?>
             <div class="comments-container">
-                <span><?= $com['username'] ;?></span>
-                <h4>#<?= $countCom ;?> From <?= $com['username'] ;?></h4>
+                <span class="title"><?= $com['username'] ;?></span>
                 <p>
                     <?= $com['content'] ;?>
                 </p>
-                <button><a href="?id=<?= $com['id'] ;?>">Delete</a></button>
+                <span class="user-id">#<?= $countCom ;?> From <?= $com['username'] ;?></span>
+                <a href="?id=<?= $com['id'] ;?>" class="btn btn-secondary">Delete</a>
             </div>
           <?php endforeach; ?>
         </div>

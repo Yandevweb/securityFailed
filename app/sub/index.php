@@ -1,14 +1,27 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+<?php include('../partials/head.php');?>
 <body>
-    <h1>Woot ! You pass this challenge</h1>
-    <a href="../index.php">Go to home</a>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 side-nav">
+        <span>Challenge list:</span>
+        <div class="btn-group-toggle">
+          <a href="../index.php" class="btn btn-sm">Book Challenge</a>
+          <a href="../login.php" class="btn btn-sm">Header challenge</a>
+          <a href="../cookie.php" class="btn btn-sm">Cookie challenge</a>
+          <a href="index.php" class="btn btn-sm">.htaccess challenge</a>
+          <a href="../scommand.php" class="btn btn-sm">Command challenge</a>
+        </div>
+      </div>
+      <div class="col test">
+        <h1>[ .httacces ] Challenge <i class="em em-passport_control"></i></h1>
+        <div class="cookie-result">
+          <span> You we're right dude you pass this challenge
+            <i class="em em-champagne"></i> </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
