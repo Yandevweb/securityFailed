@@ -30,6 +30,8 @@ body {
 
 .side-nav a {
   color: #f6f6f6;
+  display: block;
+  text-align: left;
 }
 
 .side-nav a:hover {
