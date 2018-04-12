@@ -32,17 +32,17 @@
             </form>
           <?php endif; ?>
           <?php if ($isAdmin): ?>
+            <div class="cookie-result">
+              <h2><i class="em em-scream"></i></h2>
+              <h3>
+                You have hacked our admin account so...,
+              </h3>
               <span>
-                <h3>
-                  <i class="em em-scream"></i>
-                  You have hack us,
-                </h3>
-                <h4>
-                  Congratz' bro we will pay u beer then.
+                  Congratz' bro we'll pay u beer then.
                   <i class="em em-beer"></i>
                   <i class="em em-call_me_hand"></i>
-              </h4>
               </span>
+            </div>
           <?php endif; ?>
       </div>
     </div>
