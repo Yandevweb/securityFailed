@@ -22,7 +22,7 @@ $hasPassed = isset($_SERVER['HTTP_REFERER']) && $_SERVER['HTTP_REFERER'] === 'ht
         </h1>
         <div class="cookie-result">
           <?php if (!$hasPassed): ?>
-              <p>You need access from <a href="http://powned.hack">http://powned.hack</a> to hack this page</p>
+              <p>You need to came from <a href="http://powned.hack">http://powned.hack</a> to access to this restricted content</p>
           <?php endif; ?>
           <?php if ($hasPassed): ?>
               <p>You passed ! <i class="em em-i_love_you_hand_sign"></i></p>
