@@ -38,7 +38,7 @@
       <div class="col-2 side-nav">
         <?php include('./partials/nav.php');?>
       </div>
-      <div class="col">
+      <div class="col bonus-padding">
         <h1>Type your ip to ping <br><br>
            <i class="em em-computer"></i>
            <i class="em em-twisted_rightwards_arrows"></i>

@@ -10,6 +10,10 @@ body {
 
 }
 
+.bonus-padding {
+   padding: 0 80px !important;
+}
+
 .container-fluid .form-control {
   margin-bottom: 0.5em;
   border-radius: 0;

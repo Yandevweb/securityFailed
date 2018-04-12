@@ -20,7 +20,7 @@
       <div class="col-2 side-nav">
         <?php include('./partials/nav.php');?>
       </div>
-      <div class="col">
+      <div class="col bonus-padding">
         <h1>Try to bypass form <i class="em em-male-detective"></i></h1>
         <?php if (!$isAdmin): ?>
             <form method="post" action="login.php">
